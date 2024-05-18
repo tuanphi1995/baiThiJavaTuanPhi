@@ -2,6 +2,7 @@ package baithiLuongTuanPhi.view;
 
 import baithiLuongTuanPhi.model.Contact;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookView {
@@ -51,12 +52,17 @@ public class AddressBookView {
         }
     }
 
-    public void displayAllContacts(java.util.List<Contact> contacts) {
+    public void displayAllContacts(List<Contact> contacts) {
         if (contacts.isEmpty()) {
             System.out.println("No contacts found.");
         } else {
+            System.out.printf("%-30s %-30s %-30s %-15s%n", "Contact Name", "Company", "Email", "Phone number");
             for (Contact contact : contacts) {
-                System.out.println(contact);
+                System.out.printf("%-30s %-30s %-30s %-15s%n",
+                        contact.getName(),
+                        contact.getCompany(),
+                        contact.getEmail(),
+                        contact.getPhone());
             }
         }
     }

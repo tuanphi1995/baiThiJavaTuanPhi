@@ -53,7 +53,11 @@ public class AddressBookController {
     private void findContact() {
         String name = view.getContactName();
         Contact contact = dbHelper.findContactByName(name);
-        view.displayContact(contact);
+        if (contact != null) {
+            view.displayContact(contact);
+        } else {
+            view.displayMessage("Contact not found.");
+        }
     }
 
     private void displayContacts() {
